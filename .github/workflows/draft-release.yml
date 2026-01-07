@@ -1,4 +1,4 @@
-name: Create Release
+name: Draft Release
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ on:
         default: patch
 
 jobs:
-  create-release:
+  draft-release:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -50,7 +50,7 @@ jobs:
           git push origin "v${{ steps.version.outputs.new_version }}"
 
       - name: Generate Changelog
-        run: bunx changelogithub --name "DimLED Mini v${{ steps.version.outputs.new_version }}"
+        run: bunx changelogithub --name "DimLED Mini v${{ steps.version.outputs.new_version }}" --draft
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
