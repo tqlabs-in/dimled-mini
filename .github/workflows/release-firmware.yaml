@@ -59,6 +59,8 @@ jobs:
   build-firmware:
     name: Build Firmware
     uses: esphome/workflows/.github/workflows/build.yml@2025.10.0
+    needs:
+      - version
     with:
       files: |
         esphome/dimled-mini.factory.yaml
@@ -69,15 +71,24 @@ jobs:
 
   create-release:
     name: Create GitHub Release
-    needs: build-firmware
     runs-on: ubuntu-latest
+    needs:
+      - version
+      - build-firmware
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+
+      - name: Create and push tag
+        run: |
+          git tag "${{ needs.version.outputs.tag }}"
+          git push origin "${{ needs.version.outputs.tag }}"
 
       - name: Generate release notes
         env:
@@ -88,8 +99,11 @@ jobs:
 
   upload-to-release:
     name: Upload to Release
-    uses: esphome/workflows/.github/workflows/upload-to-gh-release.yml@2025.10.0
+    uses: ./.github/workflows/upload-to-gh-release.yml
     needs:
+      - version
       - build-firmware
+      - create-release
     with:
-      version: ${{ needs.version.outputs.tag }}
+      version: ${{ needs.version.outputs.version }}
+      tag: ${{ needs.version.outputs.tag }}
