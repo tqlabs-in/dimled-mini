@@ -1,0 +1,12 @@
+---
+external_components:
+  - source: github://tanishqmanuja/esphome-components
+    components: [ddp]
+    refresh: always
+
+ddp:
+
+light:
+  - id: !extend ${ led_strip_id | default("led_strip") }
+    effects:
+      - ddp:

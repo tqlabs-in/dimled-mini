@@ -1,0 +1,12 @@
+---
+substitutions:
+  __package_network_with_credentials:
+    wifi:
+      fast_connect: true
+
+packages:
+  - ${__package_network_with_credentials if wifi_ssid is defined else {}}
+
+wifi:
+  output_power: 8.5dB
+  power_save_mode: none

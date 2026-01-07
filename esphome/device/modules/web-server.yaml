@@ -1,0 +1,6 @@
+web_server:
+  port: 80
+  log: false
+  js_url: ""
+  css_url: ""
+  js_include: "./device/web-server/www.js"

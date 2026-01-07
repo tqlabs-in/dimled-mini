@@ -1,0 +1,14 @@
+packages:
+  device.base: !include device/base.yaml
+  modules.web-server: !include device/modules/web-server.yaml
+
+http_request:
+  verify_ssl: false
+
+ota:
+  - platform: http_request
+
+update:
+  - platform: http_request
+    name: Firmware
+    source: https://github.com/tqlabs-in/dimled-mini/releases/latest/download/dimled-mini.manifest.json

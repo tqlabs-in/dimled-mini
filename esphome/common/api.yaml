@@ -1,0 +1,12 @@
+# Docs: https://esphome.io/components/api.html
+---
+substitutions:
+  __package_api_with_encryption:
+    api:
+      encryption:
+        key: ${api_encryption_key}
+  __package_api_without_encryption:
+    api: {}
+
+packages:
+  api.encryption: ${__package_api_with_encryption if api_encryption_key is defined else __package_api_without_encryption}

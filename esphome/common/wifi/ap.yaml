@@ -1,0 +1,12 @@
+---
+substitutions:
+  __package_ap_with_ssid:
+    ssid: ${wifi_ap_ssid}
+
+packages:
+  ap.ssid: ${__package_ap_with_ssid if wifi_ap_ssid is defined else {}}
+
+wifi:
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    password: ${wifi_ap_password | d("esphome.io")}

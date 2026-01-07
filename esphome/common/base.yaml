@@ -1,0 +1,6 @@
+---
+packages:
+  wifi: !include wifi.yaml
+  ota: !include ota.yaml
+  logger: !include logger.yaml
+  api: !include api.yaml

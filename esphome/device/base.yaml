@@ -1,0 +1,47 @@
+# ESPHome config for DimLED Mini
+#
+# DimLED Mini is an ESP-01 based
+# single channel LED strip controller
+#
+# Author: Tanishq Manuja // TQLabs
+# License: MIT
+#
+# -------- PINOUT --------
+# LED BUILTIN: GPIO1
+# LED STRIP  : GPIO2
+
+---
+substitutions:
+  __string_true: "true"
+  __string_false: "false"
+
+  device_name: "dimled-mini"
+  friendly_name: "DimLED Mini"
+  wifi_ap_password: tqlabs.in
+
+packages:
+  # Common Packages
+  base: !include ../common/base.yaml
+  board: !include ../common/board/esp01.yaml
+  uart.disable: !include ../common/logger/disable-uart.yaml
+  wifi.no-reboot: !include ../common/wifi/no-reboot.yaml
+  wifi.improved-stability: !include ../common/wifi/improved-stability.yaml
+  api.no-reboot: !include ../common/api/no-reboot.yaml
+  button.restart: !include ../common/button/restart.yaml
+  button.factory-reset: !include ../common/button/factory-reset.yaml
+
+  # Device Specific Packages
+  manual.prefs: !include modules/manual-preferences.yaml
+  led.builtin: !include modules/led-builtin.yaml
+  led.builtin.wifi-indication: !include modules/wifi-indication.yaml
+  led.strip: !include modules/led-strip.yaml
+  led.strip.effect.ddp: !include modules/ddp.yaml
+
+esphome:
+  name: ${device_name if device_suffix is not defined else device_name + "-" + device_suffix | string | lower}
+  friendly_name: ${friendly_name if device_suffix is not defined else friendly_name + " " + device_suffix | string}
+  name_add_mac_suffix: ${__string_true if device_suffix is not defined else __string_false}
+  comment: DimLED Mini
+  project:
+    name: TQLabs.DimLED Mini
+    version: D.E.V

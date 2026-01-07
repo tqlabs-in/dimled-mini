@@ -1,0 +1,7 @@
+packages:
+  dimled.mini: github://tqlabs-in/dimled-mini/esphome/device/base.yaml@main
+  # dimled.mini:
+  #   url: https://github.com/tqlabs-in/dimled-mini
+  #   files: [esphome/device/base.yaml]
+  #   ref: main
+  #   refresh: always
