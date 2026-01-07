@@ -44,4 +44,4 @@ esphome:
   comment: DimLED Mini
   project:
     name: TQLabs.DimLED Mini
-    version: D.E.V
+    version: dev # This will be replaced by the github workflows with the `release` version
