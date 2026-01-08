@@ -12,15 +12,13 @@ esphome:
 
 wifi:
   on_connect:
-    then:
-      - light.turn_on:
-          id: $led_builtin_id
-          effect: "None"
-      - delay: 2ms
-      - light.turn_off:
-          id: $led_builtin_id
+    - light.turn_on:
+        id: $led_builtin_id
+        effect: "None"
+    - delay: 2ms
+    - light.turn_off:
+        id: $led_builtin_id
   on_disconnect:
-    then:
-      - light.turn_on:
-          id: $led_builtin_id
-          effect: blink
+    - light.turn_on:
+        id: $led_builtin_id
+        effect: blink
