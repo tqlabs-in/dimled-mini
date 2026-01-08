@@ -1,2 +1,3 @@
 packages:
   device.base: !include device/base.yaml
+  remote.webserver: !include device/web-server/remote.yaml

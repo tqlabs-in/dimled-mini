@@ -1,7 +1,11 @@
 packages:
   device.base: !include device/base.yaml
-  modules.web-server: !include device/modules/web-server.yaml
+  local.web-server: !include device/web-server/local.yaml
 
 esphome:
   project:
     version: dev # This will be replaced by the github workflows with the `release` version
+
+dashboard_import:
+  package_import_url: github://tqlabs-in/dimled-mini/esphome/dimled-mini.yaml@main
+  import_full_config: false
