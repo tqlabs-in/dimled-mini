@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "static/**"
+      - "esphome/device/webserver/www.js"
       - ".github/workflows/publish-pages.yml"
   workflow_run:
     workflows:
@@ -15,6 +16,7 @@ on:
   pull_request:
     paths:
       - "static/**"
+      - "esphome/device/webserver/www.js"
       - ".github/workflows/publish-pages.yml"
 
 concurrency:
@@ -36,6 +38,9 @@ jobs:
         with:
           source: ./static
           destination: ./output
+
+      - name: Copy Custom Web Server JS
+        run: cp esphome/device/web-server/www.js output/webserver.js
 
       - name: Fetch firmware files
         uses: robinraju/release-downloader@v1
