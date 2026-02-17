@@ -1,18 +1,29 @@
 # Docs: https://esphome.io/components/wifi.html
 ---
 substitutions:
+  __package_empty: {}
   __package_network_with_credentials:
     wifi:
       ssid: ${wifi_ssid}
       password: ${wifi_password}
   __package_network_without_credentials:
     wifi: {}
+  __package_ap_with_ssid:
+    wifi:
+      ap:
+        ssid: ${wifi_ap_ssid}
+  __package_ap_with_password:
+    wifi:
+      ap:
+        password: ${wifi_ap_password}
 
 packages:
   wifi.credentials: ${__package_network_with_credentials if wifi_ssid is defined else __package_network_without_credentials}
 
   # Fallback AP with Captive Portal
   wifi.ap: !include wifi/ap.yaml
+  wifi.ap.ssid: ${__package_ap_with_ssid if wifi_ap_ssid is defined else __package_empty}
+  wifi.ap.password: ${__package_ap_with_password if wifi_ap_password is defined else __package_empty}
   wifi.captive-portal: !include wifi/captive-portal.yaml
 
 wifi:
