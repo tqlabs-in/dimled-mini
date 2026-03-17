@@ -15,8 +15,8 @@ substitutions:
   device_name: dimled-mini
   friendly_name: DimLED Mini
   wifi_ap_password: tqlabs.in
+  enable_mac_suffix: "true"
 
-  __string_true: "true"
   __string_false: "false"
 
 packages:
@@ -40,7 +40,7 @@ packages:
 esphome:
   name: ${device_name if device_suffix is not defined else device_name + "-" + device_suffix | string | lower}
   friendly_name: ${friendly_name if device_suffix is not defined else friendly_name + " " + device_suffix | string}
-  name_add_mac_suffix: ${__string_true if device_suffix is not defined else __string_false}
+  name_add_mac_suffix: ${enable_mac_suffix if device_suffix is not defined else __string_false}
   comment: DimLED Mini
   project:
     name: TQLabs.DimLED Mini

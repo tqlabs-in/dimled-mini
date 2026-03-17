@@ -1,10 +1,8 @@
 substitutions:
-  device_suffix: uno
-  # wifi_ssid: !secret WIFI_SSID
-  # wifi_password: !secret WIFI_PASSWORD
-
-esphome:
-  name_add_mac_suffix: false
+  device_suffix: Uno
+  enable_mac_suffix: false
+  # wifi_ssid: !secret wifi_ssid
+  # wifi_password: !secret wifi_password
 
 # NOTE:
 # REPLACE 000000 WITH YOUR DEVICE CODE // 6 DIGIT MAC ADDRESS SUFFIX
