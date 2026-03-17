@@ -16,7 +16,6 @@ substitutions:
   friendly_name: DimLED Mini
   wifi_ap_password: tqlabs.in
 
-defaults:
   __string_true: "true"
   __string_false: "false"
 
