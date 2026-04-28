@@ -3,7 +3,7 @@
     <picture>
       <source srcset="assets/logo-dark.png" media="(prefers-color-scheme: dark)">
       <source srcset="assets/logo-light.png" media="(prefers-color-scheme: light)">
-      <img src="assets/logo-light.png" alt="DimLED Mini logo">
+      <img src="assets/logo-light.png" alt="DimLED Mini logo" width="500">
     </picture>
   </a>
 </p>
