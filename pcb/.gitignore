@@ -44,3 +44,6 @@ fp-info-cache
 
 # User Outputs
 output/
+
+# History
+.history

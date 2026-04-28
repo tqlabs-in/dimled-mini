@@ -1,9 +1,9 @@
 <p align="center">
   <a href="https://github.com/tqlabs-in/dimled-mini">
     <picture>
-      <source srcset="assets/logo-dimled-mini-dark.svg" media="(prefers-color-scheme: dark)">
-      <source srcset="assets/logo-dimled-mini-light.svg" media="(prefers-color-scheme: light)">
-      <img src="assets/logo-dimled-mini-light.svg" alt="DimLED Mini logo">
+      <source srcset="assets/logo-dark.png" media="(prefers-color-scheme: dark)">
+      <source srcset="assets/logo-light.png" media="(prefers-color-scheme: light)">
+      <img src="assets/logo-light.png" alt="DimLED Mini logo">
     </picture>
   </a>
 </p>
