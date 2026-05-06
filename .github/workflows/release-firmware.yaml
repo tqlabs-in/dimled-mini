@@ -58,7 +58,7 @@ jobs:
 
   build-firmware:
     name: Build Firmware
-    uses: esphome/workflows/.github/workflows/build.yml@2026.4.0
+    uses: esphome/workflows/.github/workflows/build.yml@2026.4.1
     needs:
       - version
     with:
